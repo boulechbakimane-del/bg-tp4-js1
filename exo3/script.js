@@ -1,40 +1,31 @@
-"use strict"; // Mode strict activé (vu dans le cours)
+"use strict"; // Déclaration du mode strict (vu dans le slide 52)
 
-// Fonction B : Prend une moyenne (float) en paramètre et retourne true (ADMIS) ou false (AJOURNÉ) (vu dans le cours)
-function B(moyenne) {
-    // Condition de délibération (exemple : moyenne >= 10)
-    if (moyenne >= 10.0) {
-        return true;
-    } else {
-        return false;
-    }
+// Déclaration du tableau d'objets Students (vu dans le slide 41)
+const Students = [
+    { id: 1000, nom: "JOHN", prenom: "DOE", note: 14, credit: 5 },
+    { id: 2000, nom: "BOB", prenom: "CARLTON", note: 7, credit: 1 },
+    { id: 3000, nom: "RAYANE", prenom: "SMITH", note: 13, credit: 3 }
+];
+
+// Fonction B : Prend un paramètre de type float et retourne un booléen (vu dans le slide 42 et 47)
+function B(note) {
+    // Retourne true si la note est >= 10, sinon false (vu dans le slide 42)
+    return note >= 10;
 }
 
-// Fonction A : Gère les données de l'ensemble "Students" et affiche le résultat via console.log (vu dans le cours)
+// Fonction A : Parcourt les étudiants et appelle la fonction B pour la délibération (vu dans les slides 43 45 et 47)
 function A() {
-    // Définition des données sous forme de tableau d'objets ou de tableaux imbriqués
-    // (id, nom, prenom, moyenneTP, moyenneExamen -> calcul de la moyenne générale)
-    let students = [
-        { id: 1000, nom: "JOHN", prenom: "DOE", note1: 14, note2: 5 },
-        { id: 2000, nom: "BOB", prenom: "CARLTON", note1: 7, note2: 1 },
-        { id: 3000, nom: "RAYANE", prenom: "SMITH", note1: 13, note2: 3 }
-    ];
-
-    // Parcours des étudiants pour calculer la moyenne et effectuer la délibération
-    for (let i = 0; i < students.length; i++) {
-        let s = students[i];
+    for (let i = 0; i < Students.length; i++) {
+        let etudiant = Students[i];
         
-        // Calcul simple de la moyenne basé sur les données (ex: moyenne des deux notes)
-        let moyenneGenerale = parseFloat((s.note1 + s.note2) / 2);
-
-        // Appel de la fonction B qui retourne un booléen (vu dans le cours)
-        let estAdmis = B(moyenneGenerale);
-
-        // Affichage exact du résultat demandé dans la console
-        if (estAdmis) {
-            console.log(s.id + ": ADMIS");
+        // Appel de la fonction B avec la note (type float) de l'étudiant
+        let resultatDeliberation = B(etudiant.note);
+        
+        // Condition pour afficher ADMIS ou AJOURNÉ selon le booléen retourné (vu dans le slide 43)
+        if (resultatDeliberation) {
+            console.log(etudiant.id + ": ADMIS"); // Affichage console (vu dans le slide 34)
         } else {
-            console.log(s.id + ": AJOURNÉ");
+            console.log(etudiant.id + ": AJOURNÉ"); // Affichage console (vu dans le slide 34)
         }
     }
 }

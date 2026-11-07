@@ -1,35 +1,38 @@
-"use strict"; // Mode strict activé (vu dans le cours)
+"use strict"; // Déclaration du mode strict (vu dans le slide 52)
 
-// Fonction f1 : Affiche un tableau simple de chaînes de caractères (vu dans le cours)
+// 1. Déclaration d'un tableau simple (vu dans le slide 39)
+const tableauEtudiants = ["Etudiant1", "Etudiant2", "Etudiant3"];
+
+// 2. Déclaration d'un objet littéral (vu dans le slide 40)
+const objetEtudiant = {
+    nom: 'John',
+    prenom: 'DOE',
+    age: 30
+};
+
+// 3. Déclaration d'un tableau d'objets (vu dans le slide 41)
+const tableauObjetsEtudiants = [
+    { nom: "nom1", prenom: "prenom1", age: 21 },
+    { nom: "nom2", prenom: "prenom2", age: 22 },
+    { nom: "nom3", prenom: "prenom3", age: 23 }
+];
+
+// Fonction f1 : Parcourt le tableau simple avec une boucle (vu dans le slide 45)
 function f1() {
-    let tabEtudiants = ["Etudiant1", "Etudiant2", "Etudiant3"];
-    // Affichage des éléments du tableau un par un ou du tableau global selon la console demandée
-    console.log(tabEtudiants[0]);
-    console.log(tabEtudiants[1]);
-    console.log(tabEtudiants[2]);
+    for (let i = 0; i < tableauEtudiants.length; i++) {
+        console.log(tableauEtudiants[i]); // Affichage console (vu dans le slide 34)
+    }
 }
 
-// Fonction f2 : Affiche un objet littéral représentant un étudiant (vu dans le cours)
+// Fonction f2 : Affiche directement l'objet étudiant (vu dans le slide 40)
 function f2() {
-    let unEtudiant = {
-        nom: "John",
-        prenom: "DOE",
-        age: 30
-    };
-    console.log(unEtudiant);
+    console.log(objetEtudiant); // Affichage console (vu dans le slide 34)
 }
 
-// Fonction f3 : Affiche un tableau d'objets étudiants formaté (vu dans le cours)
+// Fonction f3 : Parcourt le tableau d'objets et concatène nom-prenom-age (vu dans les slides 41 et 45)
 function f3() {
-    let tableauObjetsEtudiants = [
-        { nom: "nom1", prenom: "prenom1", age: 21 },
-        { nom: "nom2", prenom: "prenom2", age: 22 },
-        { nom: "nom3", prenom: "prenom3", age: 23 }
-    ];
-
-    // Boucle pour afficher chaque étudiant sous le format "nom-prenom-age" (vu dans le cours)
     for (let i = 0; i < tableauObjetsEtudiants.length; i++) {
-        let e = tableauObjetsEtudiants[i];
-        console.log(e.nom + "-" + e.prenom + "-" + e.age);
+        const etudiant = tableauObjetsEtudiants[i];
+        console.log(etudiant.nom + "-" + etudiant.prenom + "-" + etudiant.age); // Affichage console (vu dans le slide 34)
     }
 }
